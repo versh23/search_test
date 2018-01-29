@@ -1,0 +1,4 @@
+App\Entity\Place:
+    place_{1..2000}:
+        name: <company()>
+        address: "@address_<current()>"

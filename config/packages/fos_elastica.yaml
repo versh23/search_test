@@ -1,0 +1,32 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/Resources/doc/setup.md
+versh_sphinx:
+    connection:
+        host: 127.0.0.1
+        port: 9306
+    indexes:
+        place:
+            class: App\Entity\Place
+            fields:
+                name:
+                    path: name
+                    stored: true
+                city:
+                    path: address.city
+                    stored: true
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            types:
+                place:
+                    properties:
+                        name: ~
+                        city:
+                            property_path: address.city
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Place
+                        provider: ~
+                        finder: ~
