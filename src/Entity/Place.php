@@ -29,6 +29,12 @@ class Place
     private $address;
 
     /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $description;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -70,6 +76,24 @@ class Place
     public function setAddress(Address $address): Place
     {
         $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Place
+     */
+    public function setDescription(string $description): Place
+    {
+        $this->description = $description;
         return $this;
     }
 

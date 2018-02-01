@@ -13,23 +13,13 @@ class TestController extends Controller
      */
     public function index()
     {
-        //Серивс поиска
-        $finder = $this->get('versh_sphinx.finder.place');
+        $finder = $this->get('fos_elastica.finder.app.place');
 
 
-        $text = 'оао';
-
-        $builder = $finder->createBuilder();
-        $builder->match($text);
+        $result = $finder->find('элект');
 
 
-        $res1 = $finder->findText($text);
-        $res2 = $finder->find($builder);
-
-        $res3 = $finder->findTextPaginated($text);
-        $res4 = $finder->findPaginated($builder);
-
-        dump($res1, $res2, $res3, $res4);die;
+        dump($result);die;
 
         return new Response('Welcome to your new controller!');
     }

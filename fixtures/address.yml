@@ -1,3 +1,0 @@
-App\Entity\Address:
-    address_{1..2000}:
-        city: <city()>
